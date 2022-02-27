@@ -6,8 +6,8 @@ use num::{Bounded, FromPrimitive, Signed};
 use rand::distributions::uniform::SampleUniform;
 
 pub fn some_number<TYPE>() -> TYPE where TYPE: Bounded, Standard: Distribution<TYPE> {
-    let mut rand_generator = rand::thread_rng();
-    rand_generator.gen()
+    let mut rng = rand::thread_rng();
+    rng.gen()
 }
 
 pub fn some_positive_number<TYPE>() -> TYPE
@@ -126,6 +126,6 @@ mod tests {
     fn can_generate_signed_number_greater_than() {
         let from: u32 = 1000;
         let actual = some_number_greater_than(from);
-        assert!(actual > to);
+        assert!(actual > from);
     }
 }
