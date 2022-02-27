@@ -70,7 +70,7 @@ pub fn some_alpha_string_of_length_between(from_bound: usize, to_bound: usize) -
 
 fn string_for_charset(bound: usize, charset: &[u8]) -> String {
     (0..bound).map(|_| {
-        charset[some_positive_number_to(charset.len())] as char
+        charset[some_number_less_than(charset.len())] as char
     })
         .collect()
 }
@@ -93,7 +93,7 @@ mod tests {
     }
 
     #[test]
-    fn can_create_some_string_of_length() {
+    fn can_create_some_string_of_length_between() {
         let min_length = some_number_between(1, 32);
         let max_length = some_number_between(33, 64);
         let actual = some_string_of_length_between(min_length, max_length);
@@ -115,7 +115,7 @@ mod tests {
     }
 
     #[test]
-    fn can_create_some_alpha_string_of_length() {
+    fn can_create_some_alpha_string_of_length_between() {
         let min_length = some_number_between(1, 32);
         let max_length = some_number_between(33, 64);
         let actual = some_alpha_string_of_length_between(min_length, max_length);
@@ -137,7 +137,7 @@ mod tests {
     }
 
     #[test]
-    fn can_create_some_alphanumeric_string_of_length() {
+    fn can_create_some_alphanumeric_string_of_length_between() {
         let min_length = some_number_between(1, 32);
         let max_length = some_number_between(33, 64);
         let actual = some_alphanumeric_string_of_length_between(min_length, max_length);
@@ -159,7 +159,7 @@ mod tests {
     }
 
     #[test]
-    fn can_create_some_numeric_string_of_length() {
+    fn can_create_some_numeric_string_of_length_between() {
         let min_length = some_number_between(1, 32);
         let max_length = some_number_between(33, 64);
         let actual = some_numeric_string_of_length_between(min_length, max_length);
