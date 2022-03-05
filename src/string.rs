@@ -1,4 +1,4 @@
-use rustaid_number::number::*;
+use crate::number::{some_number_between, some_number_less_than};
 
 const ALPHA_CHARSET: &[u8] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ\
                             abcdefghijklmnopqrstuvwxyz";
@@ -14,7 +14,7 @@ const ASCII_CHARSET: &[u8] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ\
                             <>',.?+|_/=\\-:;`~";
 
 const DEFAULT_MIN_LENGTH: usize = 1;
-const DEFAULT_MAX_LENGTH: usize = 1014;
+const DEFAULT_MAX_LENGTH: usize = 1024;
 
 pub fn some_string() -> String {
     some_string_of_length(DEFAULT_MAX_LENGTH)

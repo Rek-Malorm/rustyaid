@@ -1,4 +1,4 @@
-use crate::number::*;
+use crate::number::some_number;
 
 pub fn some_byte() -> u8 {
     some_number()

@@ -5,6 +5,9 @@ use rand::Rng;
 use num::{Bounded, FromPrimitive, Signed};
 use rand::distributions::uniform::SampleUniform;
 
+/**
+ This is a test
+ */
 pub fn some_number<TYPE>() -> TYPE where TYPE: Bounded, Standard: Distribution<TYPE> {
     let mut rng = rand::thread_rng();
     rng.gen()
@@ -40,13 +43,13 @@ pub fn some_number_between<TYPE>(from: TYPE, to: TYPE) -> TYPE
 }
 
 pub fn some_number_greater_than<TYPE>(bound: TYPE) -> TYPE
-    where TYPE: Bounded + FromPrimitive + PartialOrd
+    where TYPE: Bounded + FromPrimitive + PartialOrd + Add<Output = TYPE>
     + Sub<Output=TYPE> + SampleUniform, Standard: Distribution<TYPE> {
     let zero = TYPE::from_i8(0).unwrap();
-    if bound <= zero {
+    if bound < zero {
         panic!("Cannot handle negative value")
     }
-    some_number_between(bound, TYPE::max_value())
+    some_number_between(bound + TYPE::from_i8(1).unwrap(), TYPE::max_value())
 }
 
 pub fn some_number_less_than<TYPE>(bound: TYPE) -> TYPE
