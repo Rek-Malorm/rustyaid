@@ -1,5 +1,7 @@
 //! This crate is a simple library, providing simple methods to generate random values for different
 //! Rust types.
+//! This crate is inspired by the Java library [smt-random](https://github.com/shiver-me-timbers/smt-random-parent/tree/master/smt-random-numbers)
+//! to help with [Mockist TDD](https://martinfowler.com/articles/mocksArentStubs.html#ClassicalAndMockistTesting)
 //! # Number
 //! The number module provides methods to generate numbers for any primitive numeric type
 //! ## Usage
@@ -46,6 +48,12 @@
 //! string::some_alphanumeric_string_of_length(32); // Generates a string of 32 alphanumerical characters
 //! string::some_alphanumeric_string_of_length_between(10, 100); // Generates a string of random length between 10 and 100 alphanumerical characters
 //! ```
+
+/// A simple random byte generator
 pub mod byte;
+
+/// A simple random number generator
 pub mod number;
+
+/// A simple random string generator
 pub mod string;
