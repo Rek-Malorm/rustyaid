@@ -5,14 +5,33 @@ use rand::Rng;
 use num::{Bounded, FromPrimitive, Signed};
 use rand::distributions::uniform::SampleUniform;
 
-/**
- This is a test
- */
+/// Generates a new random number
+///
+/// Generates a new number between the min and max values for the numerical type.
+/// Supports any primitive numeric type with finite bounds
+///
+/// # Examples
+///
+/// Basic usage:
+/// ```
+/// let n: i32 = number::some_number();
+/// ```
 pub fn some_number<TYPE>() -> TYPE where TYPE: Bounded, Standard: Distribution<TYPE> {
     let mut rng = rand::thread_rng();
     rng.gen()
 }
 
+/// Generates a new random positive number
+///
+/// Generates a new number between the `0` and max values for the numerical type.
+/// Supports any primitive numeric type with finite bounds
+///
+/// # Examples
+///
+/// Basic usage:
+/// ```
+/// let n: i32 = number::some_positive_number();
+/// ```
 pub fn some_positive_number<TYPE>() -> TYPE
     where TYPE: Bounded + FromPrimitive + PartialOrd + Add<Output=TYPE>,
           Standard: Distribution<TYPE> {
@@ -24,6 +43,17 @@ pub fn some_positive_number<TYPE>() -> TYPE
     }
 }
 
+/// Generates a new random negative number
+///
+/// Generates a new number between the min and `0` for the numerical type.
+/// Supports any primitive numeric signed type with finite bounds
+///
+/// # Examples
+///
+/// Basic usage:
+/// ```
+/// let n: i32 = number::some_negative_number();
+/// ```
 pub fn some_negative_number<TYPE>() -> TYPE
     where TYPE: Bounded + FromPrimitive + PartialOrd + Sub<Output=TYPE> + Signed,
           Standard: Distribution<TYPE> {
@@ -35,13 +65,41 @@ pub fn some_negative_number<TYPE>() -> TYPE
     }
 }
 
+/// Generates a new random number between two values
+///
+/// Generates a new number between the min and max values provided for the numerical type.
+/// Supports any primitive numeric type with finite bounds
+///
+/// # Examples
+///
+/// Basic usage:
+/// ```
+/// let n: i32 = number::some_number_between(10, 20);
+/// ```
 pub fn some_number_between<TYPE>(from: TYPE, to: TYPE) -> TYPE
     where TYPE: FromPrimitive + PartialOrd + Sub<Output=TYPE>
     + SampleUniform, Standard: Distribution<TYPE> {
-    let mut rand_generator = rand::thread_rng();
-    rand_generator.gen_range(from..to)
+    if from == to{
+        from
+    }
+    else {
+        let mut rand_generator = rand::thread_rng();
+        rand_generator.gen_range(from..to)
+    }
 }
 
+/// Generates a new random number greater than some value
+///
+/// Generates a new number between the provided minimum and the max value for the numerical type
+/// Supports any primitive numeric type with finite bounds
+/// Only supports generating positive numbers
+///
+/// # Examples
+///
+/// Basic usage:
+/// ```
+/// let n: i32 = number::some_number_greater_than(10);
+/// ```
 pub fn some_number_greater_than<TYPE>(bound: TYPE) -> TYPE
     where TYPE: Bounded + FromPrimitive + PartialOrd + Add<Output = TYPE>
     + Sub<Output=TYPE> + SampleUniform, Standard: Distribution<TYPE> {
@@ -52,14 +110,23 @@ pub fn some_number_greater_than<TYPE>(bound: TYPE) -> TYPE
     some_number_between(bound + TYPE::from_i8(1).unwrap(), TYPE::max_value())
 }
 
+/// Generates a new random number less than some value
+///
+/// Generates a new number between the the minimum value for the numerical type and the provided max value
+/// Supports any primitive numeric type with finite bounds
+/// Supports signed and unsigned types
+/// Can generate negative values
+///
+/// # Examples
+///
+/// Basic usage:
+/// ```
+/// let n: i32 = number::some_number_less_than(10);
+/// ```
 pub fn some_number_less_than<TYPE>(bound: TYPE) -> TYPE
-    where TYPE: FromPrimitive + PartialOrd
+    where TYPE: Bounded + FromPrimitive + PartialOrd + Add<Output = TYPE>
     + Sub<Output=TYPE> + SampleUniform, Standard: Distribution<TYPE> {
-    let zero = TYPE::from_i8(0).unwrap();
-    if bound <= zero {
-        panic!("Cannot handle negative value")
-    }
-    some_number_between(zero, bound)
+    some_number_between(TYPE::min_value(), bound)
 }
 
 #[cfg(test)]
