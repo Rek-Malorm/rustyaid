@@ -38,7 +38,7 @@ const DEFAULT_MAX_LENGTH: usize = 1024;
 /// let s = some_string();
 /// ```
 pub fn some_string() -> String {
-    some_string_of_length_between(DEFAULT_MIN_LENGTH,DEFAULT_MAX_LENGTH)
+    some_string_of_length_between(DEFAULT_MIN_LENGTH, DEFAULT_MAX_LENGTH)
 }
 
 /// Creates a new string of random characters for a set length
@@ -178,7 +178,7 @@ pub fn some_alphanumeric_string_of_length_between(from_bound: usize, to_bound: u
 /// let s = some_numeric_string();
 /// ```
 pub fn some_numeric_string() -> String {
-    some_numeric_string_of_length_between( DEFAULT_MIN_LENGTH, DEFAULT_MAX_LENGTH)
+    some_numeric_string_of_length_between(DEFAULT_MIN_LENGTH, DEFAULT_MAX_LENGTH)
 }
 
 /// Creates a new string of random numeric characters for a set length
@@ -285,9 +285,8 @@ pub fn some_alpha_string_of_length_between(from_bound: usize, to_bound: usize) -
 }
 
 fn string_for_charset(bound: usize, charset: &[u8]) -> String {
-    (0..bound).map(|_| {
-        charset[some_number_less_than(charset.len())] as char
-    })
+    (0..bound)
+        .map(|_| charset[some_number_less_than(charset.len())] as char)
         .collect()
 }
 

@@ -1,9 +1,9 @@
-use std::ops::{Add, Sub};
+use num::{Bounded, FromPrimitive, Signed};
+use rand::distributions::uniform::SampleUniform;
 use rand::distributions::Standard;
 use rand::prelude::Distribution;
 use rand::Rng;
-use num::{Bounded, FromPrimitive, Signed};
-use rand::distributions::uniform::SampleUniform;
+use std::ops::{Add, Sub};
 
 /// Generates a new random number
 ///
@@ -17,7 +17,11 @@ use rand::distributions::uniform::SampleUniform;
 /// use rustaid::number::*;
 /// let n: i32 = some_number();
 /// ```
-pub fn some_number<TYPE>() -> TYPE where TYPE: Bounded, Standard: Distribution<TYPE> {
+pub fn some_number<TYPE>() -> TYPE
+where
+    TYPE: Bounded,
+    Standard: Distribution<TYPE>,
+{
     let mut rng = rand::thread_rng();
     rng.gen()
 }
@@ -35,8 +39,10 @@ pub fn some_number<TYPE>() -> TYPE where TYPE: Bounded, Standard: Distribution<T
 /// let n: i32 = some_positive_number();
 /// ```
 pub fn some_positive_number<TYPE>() -> TYPE
-    where TYPE: Bounded + FromPrimitive + PartialOrd + Add<Output=TYPE>,
-          Standard: Distribution<TYPE> {
+where
+    TYPE: Bounded + FromPrimitive + PartialOrd + Add<Output = TYPE>,
+    Standard: Distribution<TYPE>,
+{
     let number = some_number();
     if number <= TYPE::from_i8(0).unwrap() {
         number.add(TYPE::max_value())
@@ -58,8 +64,10 @@ pub fn some_positive_number<TYPE>() -> TYPE
 /// let n: i32 = some_negative_number();
 /// ```
 pub fn some_negative_number<TYPE>() -> TYPE
-    where TYPE: Bounded + FromPrimitive + PartialOrd + Sub<Output=TYPE> + Signed,
-          Standard: Distribution<TYPE> {
+where
+    TYPE: Bounded + FromPrimitive + PartialOrd + Sub<Output = TYPE> + Signed,
+    Standard: Distribution<TYPE>,
+{
     let number = some_number();
     if number >= TYPE::from_i8(0).unwrap() {
         number.neg()
@@ -81,12 +89,13 @@ pub fn some_negative_number<TYPE>() -> TYPE
 /// let n: i32 = some_number_between(10, 20);
 /// ```
 pub fn some_number_between<TYPE>(from: TYPE, to: TYPE) -> TYPE
-    where TYPE: FromPrimitive + PartialOrd + Sub<Output=TYPE>
-    + SampleUniform, Standard: Distribution<TYPE> {
-    if from == to{
+where
+    TYPE: FromPrimitive + PartialOrd + Sub<Output = TYPE> + SampleUniform,
+    Standard: Distribution<TYPE>,
+{
+    if from == to {
         from
-    }
-    else {
+    } else {
         let mut rand_generator = rand::thread_rng();
         rand_generator.gen_range(from..to)
     }
@@ -106,8 +115,15 @@ pub fn some_number_between<TYPE>(from: TYPE, to: TYPE) -> TYPE
 /// let n: i32 = some_number_greater_than(10);
 /// ```
 pub fn some_number_greater_than<TYPE>(bound: TYPE) -> TYPE
-    where TYPE: Bounded + FromPrimitive + PartialOrd + Add<Output = TYPE>
-    + Sub<Output=TYPE> + SampleUniform, Standard: Distribution<TYPE> {
+where
+    TYPE: Bounded
+        + FromPrimitive
+        + PartialOrd
+        + Add<Output = TYPE>
+        + Sub<Output = TYPE>
+        + SampleUniform,
+    Standard: Distribution<TYPE>,
+{
     let zero = TYPE::from_i8(0).unwrap();
     if bound < zero {
         panic!("Cannot handle negative value")
@@ -130,8 +146,15 @@ pub fn some_number_greater_than<TYPE>(bound: TYPE) -> TYPE
 /// let n: i32 = some_number_less_than(10);
 /// ```
 pub fn some_number_less_than<TYPE>(bound: TYPE) -> TYPE
-    where TYPE: Bounded + FromPrimitive + PartialOrd + Add<Output = TYPE>
-    + Sub<Output=TYPE> + SampleUniform, Standard: Distribution<TYPE> {
+where
+    TYPE: Bounded
+        + FromPrimitive
+        + PartialOrd
+        + Add<Output = TYPE>
+        + Sub<Output = TYPE>
+        + SampleUniform,
+    Standard: Distribution<TYPE>,
+{
     some_number_between(TYPE::min_value(), bound)
 }
 

@@ -39,8 +39,8 @@ pub fn some_byte_vector(bound: usize) -> Vec<u8> {
 
 #[cfg(test)]
 mod tests {
-    use crate::number::*;
     use super::*;
+    use crate::number::*;
 
     #[test]
     fn can_create_random_byte() {
