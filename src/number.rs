@@ -14,7 +14,8 @@ use rand::distributions::uniform::SampleUniform;
 ///
 /// Basic usage:
 /// ```
-/// let n: i32 = number::some_number();
+/// use rustaid::number::*;
+/// let n: i32 = some_number();
 /// ```
 pub fn some_number<TYPE>() -> TYPE where TYPE: Bounded, Standard: Distribution<TYPE> {
     let mut rng = rand::thread_rng();
@@ -30,7 +31,8 @@ pub fn some_number<TYPE>() -> TYPE where TYPE: Bounded, Standard: Distribution<T
 ///
 /// Basic usage:
 /// ```
-/// let n: i32 = number::some_positive_number();
+/// use rustaid::number::*;
+/// let n: i32 = some_positive_number();
 /// ```
 pub fn some_positive_number<TYPE>() -> TYPE
     where TYPE: Bounded + FromPrimitive + PartialOrd + Add<Output=TYPE>,
@@ -52,7 +54,8 @@ pub fn some_positive_number<TYPE>() -> TYPE
 ///
 /// Basic usage:
 /// ```
-/// let n: i32 = number::some_negative_number();
+/// use rustaid::number::*;
+/// let n: i32 = some_negative_number();
 /// ```
 pub fn some_negative_number<TYPE>() -> TYPE
     where TYPE: Bounded + FromPrimitive + PartialOrd + Sub<Output=TYPE> + Signed,
@@ -74,7 +77,8 @@ pub fn some_negative_number<TYPE>() -> TYPE
 ///
 /// Basic usage:
 /// ```
-/// let n: i32 = number::some_number_between(10, 20);
+/// use rustaid::number::*;
+/// let n: i32 = some_number_between(10, 20);
 /// ```
 pub fn some_number_between<TYPE>(from: TYPE, to: TYPE) -> TYPE
     where TYPE: FromPrimitive + PartialOrd + Sub<Output=TYPE>
@@ -98,7 +102,8 @@ pub fn some_number_between<TYPE>(from: TYPE, to: TYPE) -> TYPE
 ///
 /// Basic usage:
 /// ```
-/// let n: i32 = number::some_number_greater_than(10);
+/// use rustaid::number::*;
+/// let n: i32 = some_number_greater_than(10);
 /// ```
 pub fn some_number_greater_than<TYPE>(bound: TYPE) -> TYPE
     where TYPE: Bounded + FromPrimitive + PartialOrd + Add<Output = TYPE>
@@ -121,7 +126,8 @@ pub fn some_number_greater_than<TYPE>(bound: TYPE) -> TYPE
 ///
 /// Basic usage:
 /// ```
-/// let n: i32 = number::some_number_less_than(10);
+/// use rustaid::number::*;
+/// let n: i32 = some_number_less_than(10);
 /// ```
 pub fn some_number_less_than<TYPE>(bound: TYPE) -> TYPE
     where TYPE: Bounded + FromPrimitive + PartialOrd + Add<Output = TYPE>

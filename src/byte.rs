@@ -2,14 +2,15 @@ use crate::number::some_number;
 
 /// Creates a new byte with a random value.
 ///
-/// Creates a new byte as a `u8` using the `number::some_number()` function.
+/// Creates a new byte as a `u8` using the `some_number()` function.
 /// Uses the rand crate to generate the value.
 ///
 /// # Examples
 ///
 /// Basic usage:
 /// ```
-/// let b = byte::some_byte();
+/// use rustaid::byte::*;
+/// let b = some_byte();
 /// ```
 pub fn some_byte() -> u8 {
     some_number()
@@ -24,8 +25,9 @@ pub fn some_byte() -> u8 {
 ///
 /// Basic usage:
 /// ```
+/// use rustaid::byte::*;
 /// // Create vector of 128 bytes
-/// let b_vec = byte::some_byte_vector(128);
+/// let b_vec = some_byte_vector(128);
 /// ```
 pub fn some_byte_vector(bound: usize) -> Vec<u8> {
     let mut vec = Vec::new();
