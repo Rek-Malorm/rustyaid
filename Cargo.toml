@@ -2,7 +2,13 @@
 name = "rustaid"
 version = "0.1.0"
 edition = "2021"
+description = "A small library providing random data for testing puposes"
+homepage = "https://github.com/Rek-Malorm/rustaid"
+repository = "https://github.com/Rek-Malorm/rustaid"
+readme = "README.md"
 license-file = "LICENSE"
+keywords = ["unit", "acceptance", "test", "random"]
+categories = ["development-tools", "development-tools::testing"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
