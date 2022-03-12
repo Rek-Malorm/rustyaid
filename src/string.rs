@@ -34,7 +34,7 @@ const DEFAULT_MAX_LENGTH: usize = 1024;
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::string::*;
+/// use rustyaid::string::*;
 /// let s = some_string();
 /// ```
 pub fn some_string() -> String {
@@ -59,7 +59,7 @@ pub fn some_string() -> String {
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::string::*;
+/// use rustyaid::string::*;
 /// let s = some_string_of_length(50);
 /// ```
 pub fn some_string_of_length(to_bound: usize) -> String {
@@ -84,7 +84,7 @@ pub fn some_string_of_length(to_bound: usize) -> String {
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::string::*;
+/// use rustyaid::string::*;
 /// let s = some_string_of_length_between(50, 100);
 /// ```
 pub fn some_string_of_length_between(from_bound: usize, to_bound: usize) -> String {
@@ -108,7 +108,7 @@ pub fn some_string_of_length_between(from_bound: usize, to_bound: usize) -> Stri
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::string::*;
+/// use rustyaid::string::*;
 /// let s = some_alphanumeric_string();
 /// ```
 pub fn some_alphanumeric_string() -> String {
@@ -131,7 +131,7 @@ pub fn some_alphanumeric_string() -> String {
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::string::*;
+/// use rustyaid::string::*;
 /// let s = some_alphanumeric_string_of_length(50);
 /// ```
 pub fn some_alphanumeric_string_of_length(to_bound: usize) -> String {
@@ -154,7 +154,7 @@ pub fn some_alphanumeric_string_of_length(to_bound: usize) -> String {
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::string::*;
+/// use rustyaid::string::*;
 /// let s = some_alpha_string_of_length_between(50, 100);
 /// ```
 pub fn some_alphanumeric_string_of_length_between(from_bound: usize, to_bound: usize) -> String {
@@ -174,7 +174,7 @@ pub fn some_alphanumeric_string_of_length_between(from_bound: usize, to_bound: u
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::string::*;
+/// use rustyaid::string::*;
 /// let s = some_numeric_string();
 /// ```
 pub fn some_numeric_string() -> String {
@@ -193,7 +193,7 @@ pub fn some_numeric_string() -> String {
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::string::*;
+/// use rustyaid::string::*;
 /// let s = some_numeric_string_of_length(50);
 /// ```
 pub fn some_numeric_string_of_length(to_bound: usize) -> String {
@@ -212,7 +212,7 @@ pub fn some_numeric_string_of_length(to_bound: usize) -> String {
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::string::*;
+/// use rustyaid::string::*;
 /// let s = some_numeric_string_of_length_between(50, 100);
 /// ```
 pub fn some_numeric_string_of_length_between(from_bound: usize, to_bound: usize) -> String {
@@ -234,7 +234,7 @@ pub fn some_numeric_string_of_length_between(from_bound: usize, to_bound: usize)
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::string::*;
+/// use rustyaid::string::*;
 /// let s = some_numeric_string();
 /// ```
 pub fn some_alpha_string() -> String {
@@ -255,7 +255,7 @@ pub fn some_alpha_string() -> String {
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::string::*;
+/// use rustyaid::string::*;
 /// let s = some_alpha_string_of_length(50);
 /// ```
 pub fn some_alpha_string_of_length(to_bound: usize) -> String {
@@ -276,7 +276,7 @@ pub fn some_alpha_string_of_length(to_bound: usize) -> String {
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::string::*;
+/// use rustyaid::string::*;
 /// let s = some_alpha_string_of_length_between(50, 100);
 /// ```
 pub fn some_alpha_string_of_length_between(from_bound: usize, to_bound: usize) -> String {

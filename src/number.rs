@@ -14,7 +14,7 @@ use std::ops::{Add, Sub};
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::number::*;
+/// use rustyaid::number::*;
 /// let n: i32 = some_number();
 /// ```
 pub fn some_number<TYPE>() -> TYPE
@@ -35,7 +35,7 @@ where
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::number::*;
+/// use rustyaid::number::*;
 /// let n: i32 = some_positive_number();
 /// ```
 pub fn some_positive_number<TYPE>() -> TYPE
@@ -60,7 +60,7 @@ where
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::number::*;
+/// use rustyaid::number::*;
 /// let n: i32 = some_negative_number();
 /// ```
 pub fn some_negative_number<TYPE>() -> TYPE
@@ -85,7 +85,7 @@ where
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::number::*;
+/// use rustyaid::number::*;
 /// let n: i32 = some_number_between(10, 20);
 /// ```
 pub fn some_number_between<TYPE>(from: TYPE, to: TYPE) -> TYPE
@@ -110,7 +110,7 @@ where
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::number::*;
+/// use rustyaid::number::*;
 /// let n: i32 = some_number_between_inclusive(10, 20);
 /// ```
 pub fn some_number_between_inclusive<TYPE>(from: TYPE, to: TYPE) -> TYPE
@@ -136,7 +136,7 @@ where
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::number::*;
+/// use rustyaid::number::*;
 /// let n: i32 = some_number_greater_than(10);
 /// ```
 pub fn some_number_greater_than<TYPE>(bound: TYPE) -> TYPE
@@ -167,7 +167,7 @@ where
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::number::*;
+/// use rustyaid::number::*;
 /// let n: i32 = some_number_less_than(10);
 /// ```
 pub fn some_number_less_than<TYPE>(bound: TYPE) -> TYPE

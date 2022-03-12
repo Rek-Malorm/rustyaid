@@ -1,10 +1,10 @@
 [package]
-name = "rustaid"
-version = "0.1.1"
+name = "rustyaid"
+version = "0.1.0"
 edition = "2021"
 description = "A small library providing random data for testing puposes"
-homepage = "https://github.com/Rek-Malorm/rustaid"
-repository = "https://github.com/Rek-Malorm/rustaid"
+homepage = "https://github.com/Rek-Malorm/rustyaid"
+repository = "https://github.com/Rek-Malorm/rustyaid"
 readme = "README.md"
 license ="MIT OR Apache-2.0"
 keywords = ["unit", "acceptance", "test", "random"]
@@ -21,7 +21,7 @@ rand = "0.8"
 num = "0.4"
 
 [lib]
-name = "rustaid"
+name = "rustyaid"
 path = "src/lib.rs"
 test = true
 doctest = true

@@ -6,7 +6,7 @@
 //! The number module provides methods to generate numbers for any primitive numeric type
 //! ## Usage
 //! ```
-//! use rustaid::number::*;
+//! use rustyaid::number::*;
 //!
 //! let value: i32 = some_number(); // Generate some signed integer of 32 bytes
 //! let value = some_number::<i32>(); // Generate some signed integer of 32 bytes alternative call
@@ -22,7 +22,7 @@
 //! The byte module provides methods to generate bytes, singular and ass prat of a vec
 //! ## Usage
 //! ```
-//! use rustaid::byte::*;
+//! use rustyaid::byte::*;
 //!
 //! some_byte(); // Returns a signgular byte (u8)
 //! some_byte_vector(1024); // Returns a vec containing 1024 random bytes
@@ -32,7 +32,7 @@
 //! The string module privodes methods to generate random strings.
 //! ## Usage
 //! ```
-//! use rustaid::string::*;
+//! use rustyaid::string::*;
 //!
 //! some_string(); // Generates a string of random length between 1 to 1024 characters
 //! some_string_of_length(32); // Generates a string of 32 characters

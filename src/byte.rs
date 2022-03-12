@@ -9,7 +9,7 @@ use crate::number::some_number;
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::byte::*;
+/// use rustyaid::byte::*;
 /// let b = some_byte();
 /// ```
 pub fn some_byte() -> u8 {
@@ -25,7 +25,7 @@ pub fn some_byte() -> u8 {
 ///
 /// Basic usage:
 /// ```
-/// use rustaid::byte::*;
+/// use rustyaid::byte::*;
 /// // Create vector of 128 bytes
 /// let b_vec = some_byte_vector(128);
 /// ```
