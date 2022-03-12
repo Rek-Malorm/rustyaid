@@ -10,7 +10,7 @@ license-file = "LICENSE"
 keywords = ["unit", "acceptance", "test", "random"]
 categories = ["development-tools", "development-tools::testing"]
 include = [
-    "**.*.rs",
+    "src/**/*.rs",
     "Cargo.toml",
     "LICENSE",
     "README.md",
@@ -19,6 +19,16 @@ include = [
 [dependencies]
 rand = "0.8"
 num = "0.4"
+
+[lib]
+name = "rustaid"
+path = "src/lib.rs"
+test = true
+doctest = true
+bench = false
+proc-macro = false
+edition = "2021"
+crate-type = ["lib"]
 
 [profile.dev]
 opt-level = 1
