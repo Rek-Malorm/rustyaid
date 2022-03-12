@@ -9,8 +9,12 @@ readme = "README.md"
 license-file = "LICENSE"
 keywords = ["unit", "acceptance", "test", "random"]
 categories = ["development-tools", "development-tools::testing"]
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+include = [
+    "**.*.rs",
+    "Cargo.toml",
+    "LICENSE",
+    "README.md",
+]
 
 [dependencies]
 rand = "0.8"
