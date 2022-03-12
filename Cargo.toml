@@ -1,12 +1,12 @@
 [package]
 name = "rustaid"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A small library providing random data for testing puposes"
 homepage = "https://github.com/Rek-Malorm/rustaid"
 repository = "https://github.com/Rek-Malorm/rustaid"
 readme = "README.md"
-license-file = "LICENSE"
+license ="MIT OR Apache-2.0"
 keywords = ["unit", "acceptance", "test", "random"]
 categories = ["development-tools", "development-tools::testing"]
 include = [
