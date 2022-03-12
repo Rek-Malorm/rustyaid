@@ -76,7 +76,7 @@ where
     }
 }
 
-/// Generates a new random number between two values
+/// Generates a new random number between `from`, inclusive, and `to`, exclusive
 ///
 /// Generates a new number between the min and max values provided for the numerical type.
 /// Supports any primitive numeric type with finite bounds
@@ -98,6 +98,31 @@ where
     } else {
         let mut rand_generator = rand::thread_rng();
         rand_generator.gen_range(from..to)
+    }
+}
+
+/// Generates a new random number between `from`, inclusive, and `to`, inclusive
+///
+/// Generates a new number between the min and max values provided for the numerical type.
+/// Supports any primitive numeric type with finite bounds
+///
+/// # Examples
+///
+/// Basic usage:
+/// ```
+/// use rustaid::number::*;
+/// let n: i32 = some_number_between_inclusive(10, 20);
+/// ```
+pub fn some_number_between_inclusive<TYPE>(from: TYPE, to: TYPE) -> TYPE
+where
+    TYPE: FromPrimitive + PartialOrd + Sub<Output = TYPE> + SampleUniform,
+    Standard: Distribution<TYPE>,
+{
+    if from == to {
+        from
+    } else {
+        let mut rand_generator = rand::thread_rng();
+        rand_generator.gen_range(from..=to)
     }
 }
 
@@ -203,6 +228,15 @@ mod tests {
         let actual = some_number_between(from, to);
         assert!(actual >= from);
         assert!(actual < to);
+    }
+
+    #[test]
+    fn can_generate_signed_integer_between_inclusive() {
+        let from = -1000;
+        let to = 1000;
+        let actual = some_number_between_inclusive(from, to);
+        assert!(actual >= from);
+        assert!(actual <= to);
     }
 
     #[test]
