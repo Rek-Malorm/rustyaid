@@ -19,3 +19,9 @@ include = [
 [dependencies]
 rand = "0.8"
 num = "0.4"
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+opt-level = 3
