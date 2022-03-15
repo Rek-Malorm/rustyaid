@@ -250,14 +250,28 @@ mod tests {
 
     #[test]
     fn can_generate_signed_number_less_than() {
-        let to: u32 = 1000;
+        let to: i32 = 1000;
+        let actual = some_number_less_than(to);
+        assert!(actual < to);
+    }
+
+    #[test]
+    fn can_generate_unsigned_number_less_than() {
+        let to: usize = 1000;
         let actual = some_number_less_than(to);
         assert!(actual < to);
     }
 
     #[test]
     fn can_generate_signed_number_greater_than() {
-        let from: u32 = 1000;
+        let from: i32 = 1000;
+        let actual = some_number_greater_than(from);
+        assert!(actual > from);
+    }
+
+    #[test]
+    fn can_generate_unsigned_number_greater_than() {
+        let from: usize = 1000;
         let actual = some_number_greater_than(from);
         assert!(actual > from);
     }
